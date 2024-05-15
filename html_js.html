@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<sc>, initial-scale=1.0">
+    <title>Class Webpage</title>
+</head>
+<body>
+    <p>Ali is a person</p>
+    
+    <script>
+              
+        let x= 0
+        let y= 5
+        let person= {name: "John", age: 30}
+        console.log(x)
+        console.log(x>y)
+        x+=3
+        console.log(x)
+        console.log(x & y)
+        if(x>5){
+            console.log('THis class is a lot')
+        }
+        else{
+            console.log("I guess i have to manage shaa")
+        }
+        //now mkaing a function as a value
+        add= (a,b)=>{
+            return a+b
+        }
+        let result= add(1,34)
+        console.log(result)
+        //nested scope
+        function outer(){
+            let z= 10
+            function inner(){
+                console.log(z)
+            }
+            inner()
+            }
+            outer();
+            //sth I just learnt in this class is that the function (when you define the function aloner) does not work unless you put the 'function' keyword 
+            //BUt when you are assigning the function to a variable, then you don't have to write the function keyword
+console.log(person['name'])
+//another thing I learnt in this class; if you try to get a value froma key in an object, you must put the object in ''     or it won't work, like the above line
+</script>
+</body>
+</html>
