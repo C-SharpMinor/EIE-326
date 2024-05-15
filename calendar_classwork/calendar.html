@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2024 Calendar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .calendar {
+      width: 600px;
+      margin: 0 auto;
+    }
+    .month {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    .month h2 {
+      margin: 0;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+    .days {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .day {
+      width: calc(33.33% - 10px);
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 5px;
+      text-align: center;
+    }
+    .special-day {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="calendar">
+    <h1>2024 Calendar</h1>
+    <div class="months"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      var months = [
+        { name: 'January', days: Array.from({ length: 31 }, (_, i) => i + 1) },
+        { name: 'February', days: Array.from({ length: 28 }, (_, i) => i + 1) },
+        { name: 'March', days: Array.from({ length: 31 }, (_, i) => i + 1) },
+        { name: 'April', days: Array.from({ length: 30 }, (_, i) => i + 1) },
+        { name: 'May', days: Array.from({ length: 31 }, (_, i) => i + 1) },
+        { name: 'June', days: Array.from({ length: 30 }, (_, i) => i + 1) },
+        { name: 'July', days: Array.from({ length: 31 }, (_, i) => i + 1) },
+        { name: 'August', days: Array.from({ length: 31 }, (_, i) => i + 1) },
+        { name: 'September', days: Array.from({ length: 30 }, (_, i) => i + 1) },
+        { name: 'October', days: Array.from({ length: 31 }, (_, i) => i + 1) },
+        { name: 'November', days: Array.from({ length: 30 }, (_, i) => i + 1) },
+        { name: 'December', days: Array.from({ length: 31 }, (_, i) => i + 1) }
+      ];
+
+      months.forEach(function(month) {
+        var $month = $('<div class="month">');
+        $month.append('<h2>' + month.name + '</h2>');
+        var $days = $('<div class="days">');
+        month.days.forEach(function(day) {
+          var $day = $('<div class="day">').text(day);
+          if (month.name === 'May' && day === 23) {
+            $day.addClass('special-day');
+          }
+          $days.append($day);
+        });
+        $month.append($days);
+        $('.calendar .months').append($month);
+      });
+    });
+  </script>
+</body>
+</html>
